@@ -1,18 +1,26 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useWizardStore } from './store';
 import { useDataPackStore } from '../../core/datapack/store';
-import { useHistoryStore } from '../../core/history/store';
+// import { useHistoryStore } from '../../core/history/store';
 import { useFxStore } from '../../fx/store'; // Updated import
 import { calculateUtilFee } from '../../core/calc/utilFee';
 import { calculateCustomsDuty } from '../../core/calc/customs';
 import { CalculationInput } from '../../core/calc/types';
 import { convertFx } from '../../fx/convert'; // Added import
-import { LucideInfo, LucideSave, LucideHistory, LucideLink, LucideDownload } from 'lucide-react';
+import { LucideInfo, LucideSave, LucideHistory, LucideLink, LucideDownload, LucideBarChart2 } from 'lucide-react';
 import { ShareButton } from '../result/ShareButton';
 import { encodeInputToHash } from '../../core/share/url';
 import { HistoryList } from '../history/HistoryList';
 import { PrintTemplate } from '../pdf/PrintTemplate';
+import { AdvancedPrintTemplate } from '../pdf/AdvancedPrintTemplate'; // Pro
 import { CurrencySelect } from '../currency/CurrencySelect'; // Added import
+import { useScenarioStore } from '../../pro/scenarios/store';
+import { CompareScreen } from '../../pro/scenarios/CompareScreen';
+// import { FeatureFlags } from '../../pro/flags';
+import { getEntitlement } from '../../pro/entitlement';
+import { ProLockedModal } from '../../pro/ui/ProLockedModal';
+import { ProInfoScreen } from '../../pro/ui/ProInfoScreen';
+import { ScenarioManager } from '../../pro/scenarios/ScenarioManager';
 
 import { motion, AnimatePresence } from 'framer-motion';
 
@@ -180,9 +188,25 @@ function StepCarParams() {
 function ResultScreen() {
     const { input, setStep } = useWizardStore();
     const { tables, loadTable } = useDataPackStore();
-    const { saveCalculation } = useHistoryStore();
+    // const { saveCalculation } = useHistoryStore();
     const { snapshot, init, isLoading: isFxLoading, error: fxError } = useFxStore();
+    const { saveScenario, loadScenarios } = useScenarioStore();
     const [showPdfTemplate, setShowPdfTemplate] = useState(false);
+    const [showAdvancedPdf, setShowAdvancedPdf] = useState(false);
+    const [isPdfLoading, setIsPdfLoading] = useState(false);
+    const [showCompare, setShowCompare] = useState(false);
+
+    // Pro UI States
+    const [showPaywall, setShowPaywall] = useState(false);
+    const [paywallFeature, setPaywallFeature] = useState('');
+    const [showProInfo, setShowProInfo] = useState(false);
+    const [showScenarioManager, setShowScenarioManager] = useState(false);
+
+    // Entitlement
+    const isPro = getEntitlement().premium;
+
+    // Init scenarios
+    useEffect(() => { loadScenarios() }, []);
 
     // Init FX
     if (!snapshot && !isFxLoading && !fxError) {
@@ -220,8 +244,29 @@ function ResultScreen() {
     const calcInputFull = calcInput;
 
     const handleSave = () => {
-        saveCalculation(calcInputFull, results);
-        alert('Расчёт сохранён в истории!');
+        const title = prompt('Название сценария (например: Germany BMW X5):', `${input.car_price_currency} Import`);
+        if (title) {
+            saveScenario(title, calcInputFull, results, total, currency)
+                .then(() => alert('Сценарий сохранён!'))
+                .catch(e => {
+                    if (e.message.includes('Limit reached')) {
+                        if (confirm('Лимит сохраненных сценариев (10). Открыть управление сценариями для удаления старых?')) {
+                            setShowScenarioManager(true);
+                        }
+                    } else {
+                        alert(e.message);
+                    }
+                });
+        }
+    };
+
+    const handleProAction = (feature: string, action: () => void) => {
+        if (isPro) {
+            action();
+        } else {
+            setPaywallFeature(feature);
+            setShowPaywall(true);
+        }
     };
 
     return (
@@ -307,6 +352,13 @@ function ResultScreen() {
                     <span>Сохранить</span>
                 </button>
                 <button
+                    onClick={() => handleProAction('Сравнение сценариев', () => setShowCompare(true))}
+                    className={`flex items-center gap-2 px-3 py-2 rounded-lg transition-colors text-sm font-medium ${isPro ? 'bg-purple-500/10 hover:bg-purple-500/20 text-purple-400' : 'bg-neutral-800 text-gray-500 hover:bg-neutral-700'}`}
+                >
+                    <LucideBarChart2 className="w-4 h-4" />
+                    <span>Сравнить {!isPro && '🔒'}</span>
+                </button>
+                <button
                     onClick={() => {
                         const hash = encodeInputToHash(calcInputFull);
                         const url = window.location.origin + window.location.pathname + hash;
@@ -330,28 +382,71 @@ function ResultScreen() {
                             <div className="text-xs text-muted-foreground">Для таможенного брокера и банка</div>
                         </div>
                         <button
+                            disabled={isPdfLoading}
                             onClick={async () => {
+                                setIsPdfLoading(true);
                                 const { PdfService } = await import('../../core/pdf/PdfService');
                                 try {
-                                    // Hack: Render template briefly or assume it is in DOM hidden
-                                    // Ideally we mount it, but for now let's use a simpler approach:
-                                    // Trigger a state that renders the PrintTemplate off-screen, then capture
                                     setShowPdfTemplate(true);
-                                    // allow render
                                     setTimeout(async () => {
-                                        await PdfService.generateReport('pdf-template', `auto-import-${new Date().toISOString().split('T')[0]}.pdf`);
-                                        setShowPdfTemplate(false);
+                                        try {
+                                            await PdfService.generateReport('pdf-template', `auto-import-${new Date().toISOString().split('T')[0]}.pdf`);
+                                        } finally {
+                                            setShowPdfTemplate(false);
+                                            setIsPdfLoading(false);
+                                        }
+                                    }, 100);
+                                } catch (e) {
+                                    console.error(e);
+                                    alert('Ошибка генерации PDF. Попробуйте еще раз.');
+                                    setShowPdfTemplate(false);
+                                    setIsPdfLoading(false);
+                                }
+                            }}
+                            className={`bg-neutral-800 text-white hover:bg-neutral-700 border border-white/20 px-4 py-2 rounded-lg text-sm font-bold transition-colors flex items-center gap-2 ${isPdfLoading ? 'opacity-50 cursor-not-allowed' : ''}`}
+                        >
+                            <LucideDownload className="w-4 h-4" />
+                            <span>{isPdfLoading ? '...' : 'PDF (Free)'}</span>
+                        </button>
+                        <button
+                            disabled={isPdfLoading}
+                            onClick={() => handleProAction('Advanced PDF', async () => {
+                                setIsPdfLoading(true);
+                                const { PdfService } = await import('../../core/pdf/PdfService');
+                                try {
+                                    setShowAdvancedPdf(true);
+                                    // Safety timeout
+                                    const timeout = setTimeout(() => {
+                                        if (isPdfLoading) {
+                                            alert('Генерация PDF заняла слишком много времени. Попробуйте обычный PDF.');
+                                            setIsPdfLoading(false);
+                                            setShowAdvancedPdf(false);
+                                        }
+                                    }, 20000);
+
+                                    setTimeout(async () => {
+                                        try {
+                                            await PdfService.generateReport('pdf-advanced-template', `auto-import-pro-${new Date().toISOString().split('T')[0]}.pdf`);
+                                        } catch (e) {
+                                            console.error(e);
+                                            alert('Ошибка Advanced PDF. Попробуйте Basic PDF.');
+                                        } finally {
+                                            clearTimeout(timeout);
+                                            setShowAdvancedPdf(false);
+                                            setIsPdfLoading(false);
+                                        }
                                     }, 100);
                                 } catch (e) {
                                     console.error(e);
                                     alert('Ошибка генерации PDF');
-                                    setShowPdfTemplate(false);
+                                    setShowAdvancedPdf(false);
+                                    setIsPdfLoading(false);
                                 }
-                            }}
-                            className="bg-white text-black hover:bg-gray-200 px-4 py-2 rounded-lg text-sm font-bold transition-colors flex items-center gap-2"
+                            })}
+                            className={`px-4 py-2 rounded-lg text-sm font-bold transition-colors flex items-center gap-2 ${isPro ? 'bg-white text-black hover:bg-gray-200' : 'bg-gray-700 text-gray-400 hover:bg-gray-600'} ${isPdfLoading ? 'opacity-50 cursor-not-allowed' : ''}`}
                         >
                             <LucideDownload className="w-4 h-4" />
-                            <span>Скачать PDF</span>
+                            <span>PDF (PRO) {!isPro && '🔒'}</span>
                         </button>
                     </div>
                 </div>
@@ -360,8 +455,15 @@ function ResultScreen() {
             {/* Hidden Template for PDF Capture */}
             {
                 showPdfTemplate && (
-                    <div id="pdf-template" className="fixed top-0 left-0 bg-white z-[-1] pointer-events-none opacity-0">
+                    <div id="pdf-mount-point" className="fixed top-0 left-0 bg-white z-[-1] pointer-events-none opacity-0">
                         <PrintTemplate input={calcInputFull} results={results} total={total} />
+                    </div>
+                )
+            }
+            {
+                showAdvancedPdf && (
+                    <div id="pdf-advanced-wrapper" className="fixed top-0 left-0 bg-white z-[-1] pointer-events-none opacity-0">
+                        <AdvancedPrintTemplate input={calcInputFull} results={results} total={total} snapshotDate={snapshot?.Date || new Date().toISOString()} />
                     </div>
                 )
             }
@@ -369,6 +471,29 @@ function ResultScreen() {
             <button onClick={() => setStep(1)} className="w-full text-center text-muted-foreground hover:text-white pt-4">
                 Новый расчёт
             </button>
+
+            {showCompare && (
+                <CompareScreen
+                    onClose={() => setShowCompare(false)}
+                    currentResult={{ input: calcInputFull, results, totalRub: total, currency }}
+                />
+            )}
+
+            <ProLockedModal
+                isOpen={showPaywall}
+                onClose={() => setShowPaywall(false)}
+                featureTitle={paywallFeature}
+                onShowInfo={() => setShowProInfo(true)}
+            />
+
+            <ProInfoScreen
+                isOpen={showProInfo}
+                onClose={() => setShowProInfo(false)}
+            />
+
+            {showScenarioManager && (
+                <ScenarioManager onClose={() => setShowScenarioManager(false)} />
+            )}
         </div>
     )
 }

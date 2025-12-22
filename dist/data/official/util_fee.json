@@ -1,186 +1,186 @@
 {
-    "id": "util_fee",
-    "version": "2024-10-01",
-    "rates": [
-        {
-            "category": "M1",
-            "importer_type": "personal",
-            "age_years": [
-                0,
-                3
-            ],
-            "engine_volume": [
-                0,
-                1000
-            ],
-            "k_factor": 0.17,
-            "base_rate": 20000,
-            "source_ref": "Decree 1118"
-        },
-        {
-            "category": "M1",
-            "importer_type": "personal",
-            "age_years": [
-                0,
-                3
-            ],
-            "engine_volume": [
-                1000,
-                2000
-            ],
-            "k_factor": 0.17,
-            "base_rate": 20000,
-            "source_ref": "Decree 1118"
-        },
-        {
-            "category": "M1",
-            "importer_type": "personal",
-            "age_years": [
-                0,
-                3
-            ],
-            "engine_volume": [
-                2000,
-                3000
-            ],
-            "k_factor": 0.17,
-            "base_rate": 20000,
-            "source_ref": "Decree 1118"
-        },
-        {
-            "category": "M1",
-            "importer_type": "personal",
-            "age_years": [
-                0,
-                3
-            ],
-            "engine_volume": [
-                3000,
-                3500
-            ],
-            "k_factor": 97,
-            "base_rate": 20000,
-            "source_ref": "Decree 1118"
-        },
-        {
-            "category": "M1",
-            "importer_type": "personal",
-            "age_years": [
-                0,
-                3
-            ],
-            "engine_volume": [
-                3500,
-                99999
-            ],
-            "k_factor": 115,
-            "base_rate": 20000,
-            "source_ref": "Decree 1118"
-        },
-        {
-            "category": "M1",
-            "importer_type": "personal",
-            "age_years": [
-                3,
-                99
-            ],
-            "engine_volume": [
-                0,
-                1000
-            ],
-            "k_factor": 0.26,
-            "base_rate": 20000,
-            "source_ref": "Decree 1118"
-        },
-        {
-            "category": "M1",
-            "importer_type": "personal",
-            "age_years": [
-                3,
-                99
-            ],
-            "engine_volume": [
-                1000,
-                2000
-            ],
-            "k_factor": 0.26,
-            "base_rate": 20000,
-            "source_ref": "Decree 1118"
-        },
-        {
-            "category": "M1",
-            "importer_type": "personal",
-            "age_years": [
-                3,
-                99
-            ],
-            "engine_volume": [
-                2000,
-                3000
-            ],
-            "k_factor": 0.26,
-            "base_rate": 20000,
-            "source_ref": "Decree 1118"
-        },
-        {
-            "category": "M1",
-            "importer_type": "personal",
-            "age_years": [
-                3,
-                99
-            ],
-            "engine_volume": [
-                3000,
-                3500
-            ],
-            "k_factor": 148.5,
-            "base_rate": 20000,
-            "source_ref": "Decree 1118"
-        },
-        {
-            "category": "M1",
-            "importer_type": "personal",
-            "age_years": [
-                3,
-                99
-            ],
-            "engine_volume": [
-                3500,
-                99999
-            ],
-            "k_factor": 162,
-            "base_rate": 20000,
-            "source_ref": "Decree 1118"
-        },
-        {
-            "category": "M1",
-            "importer_type": "commercial",
-            "age_years": [
-                0,
-                3
-            ],
-            "engine_volume": [
-                0,
-                1000
-            ],
-            "k_factor": 4.06,
-            "base_rate": 20000,
-            "source_ref": "Decree 1118 (Comm)"
-        },
-        {
-            "category": "M1",
-            "importer_type": "commercial",
-            "age_years": [
-                0,
-                3
-            ],
-            "engine_volume": [
-                1000,
-                2000
-            ],
-            "k_factor": 15.03,
-            "base_rate": 20000,
-            "source_ref": "Decree 1118 (Comm)"
-        }
-    ]
+  "id": "util_fee",
+  "version": "2024-10-01",
+  "rates": [
+    {
+      "category": "M1",
+      "age_years": [
+        0,
+        3
+      ],
+      "engine_volume": [
+        0,
+        1000
+      ],
+      "k_factor": 0.17,
+      "base_rate": 20000,
+      "importer_type": "personal",
+      "source_ref": "Decree 1118"
+    },
+    {
+      "category": "M1",
+      "age_years": [
+        0,
+        3
+      ],
+      "engine_volume": [
+        1000,
+        2000
+      ],
+      "k_factor": 0.17,
+      "base_rate": 20000,
+      "importer_type": "personal",
+      "source_ref": "Decree 1118"
+    },
+    {
+      "category": "M1",
+      "age_years": [
+        0,
+        3
+      ],
+      "engine_volume": [
+        2000,
+        3000
+      ],
+      "k_factor": 0.17,
+      "base_rate": 20000,
+      "importer_type": "personal",
+      "source_ref": "Decree 1118"
+    },
+    {
+      "category": "M1",
+      "age_years": [
+        0,
+        3
+      ],
+      "engine_volume": [
+        3000,
+        3500
+      ],
+      "k_factor": 97,
+      "base_rate": 20000,
+      "importer_type": "personal",
+      "source_ref": "Decree 1118"
+    },
+    {
+      "category": "M1",
+      "age_years": [
+        0,
+        3
+      ],
+      "engine_volume": [
+        3500,
+        99999
+      ],
+      "k_factor": 115,
+      "base_rate": 20000,
+      "importer_type": "personal",
+      "source_ref": "Decree 1118"
+    },
+    {
+      "category": "M1",
+      "age_years": [
+        3,
+        99
+      ],
+      "engine_volume": [
+        0,
+        1000
+      ],
+      "k_factor": 0.26,
+      "base_rate": 20000,
+      "importer_type": "personal",
+      "source_ref": "Decree 1118"
+    },
+    {
+      "category": "M1",
+      "age_years": [
+        3,
+        99
+      ],
+      "engine_volume": [
+        1000,
+        2000
+      ],
+      "k_factor": 0.26,
+      "base_rate": 20000,
+      "importer_type": "personal",
+      "source_ref": "Decree 1118"
+    },
+    {
+      "category": "M1",
+      "age_years": [
+        3,
+        99
+      ],
+      "engine_volume": [
+        2000,
+        3000
+      ],
+      "k_factor": 0.26,
+      "base_rate": 20000,
+      "importer_type": "personal",
+      "source_ref": "Decree 1118"
+    },
+    {
+      "category": "M1",
+      "age_years": [
+        3,
+        99
+      ],
+      "engine_volume": [
+        3000,
+        3500
+      ],
+      "k_factor": 148.5,
+      "base_rate": 20000,
+      "importer_type": "personal",
+      "source_ref": "Decree 1118"
+    },
+    {
+      "category": "M1",
+      "age_years": [
+        3,
+        99
+      ],
+      "engine_volume": [
+        3500,
+        99999
+      ],
+      "k_factor": 162,
+      "base_rate": 20000,
+      "importer_type": "personal",
+      "source_ref": "Decree 1118"
+    },
+    {
+      "category": "M1",
+      "age_years": [
+        0,
+        3
+      ],
+      "engine_volume": [
+        0,
+        1000
+      ],
+      "k_factor": 4.06,
+      "base_rate": 20000,
+      "importer_type": "commercial",
+      "source_ref": "Decree 1118 (Comm)"
+    },
+    {
+      "category": "M1",
+      "age_years": [
+        0,
+        3
+      ],
+      "engine_volume": [
+        1000,
+        2000
+      ],
+      "k_factor": 15.03,
+      "base_rate": 20000,
+      "importer_type": "commercial",
+      "source_ref": "Decree 1118 (Comm)"
+    }
+  ]
 }

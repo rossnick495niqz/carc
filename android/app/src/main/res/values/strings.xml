@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">Auto Import Calculator</string>
+    <string name="title_activity_main">Auto Import Calculator</string>
+    <string name="package_name">com.carculator.app</string>
+    <string name="custom_url_scheme">com.carculator.app</string>
+</resources>
