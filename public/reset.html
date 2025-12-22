@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Сброс кэша | Auto Import Calculator</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background-color: #111;
+            color: #eee;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            text-align: center;
+        }
+
+        .spinner {
+            border: 4px solid rgba(255, 255, 255, 0.1);
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            border-left-color: #09f;
+            animation: spin 1s linear infinite;
+            margin-bottom: 20px;
+        }
+
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        #status {
+            font-size: 14px;
+            color: #888;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="spinner"></div>
+    <h3>Сбрасываем кэш приложения…</h3>
+    <p>Это займет 10–20 секунд</p>
+    <div id="status">Инициализация...</div>
+
+    <script>
+        (async function () {
+            const statusEl = document.getElementById('status');
+            const log = (msg) => {
+                console.log('[Reset]', msg);
+                statusEl.innerText = msg;
+            };
+
+            try {
+                // 1. Unregister Service Workers
+                if ('serviceWorker' in navigator) {
+                    log('Удаляем Service Workers...');
+                    const registrations = await navigator.serviceWorker.getRegistrations();
+                    for (const registration of registrations) {
+                        await registration.unregister();
+                        log('Service Worker удален: ' + registration.scope);
+                    }
+                }
+
+                // 2. Clear Cache Storage
+                if ('caches' in window) {
+                    log('Очищаем кэши...');
+                    const keys = await caches.keys();
+                    for (const key of keys) {
+                        await caches.delete(key);
+                        log('Кэш удален: ' + key);
+                    }
+                }
+
+                // 3. Clear Session Storage
+                log('Очищаем сессию...');
+                sessionStorage.clear();
+
+                // 4. Optional: Clear specific local storage keys (keeping User Preferences/Scenarios)
+                // We leave localStorage mostly intact to preserve user data (scenarios, history).
+                // Only if we had keys specifically for update flags, we'd remove them here.
+
+                log('Готово! Перенаправление...');
+
+                // 5. Redirect to base path
+                // This handles subdirectory deployments (e.g. /carc/reset.html -> /carc/)
+                const currentPath = window.location.pathname;
+                const basePath = currentPath.replace(/\/reset\.html$/, "");
+
+                // Ensure proper trailing slash for the app root
+                const redirectUrl = window.location.origin + (basePath.endsWith('/') ? basePath : basePath + '/');
+
+                console.log('Redirecting to:', redirectUrl);
+
+                // Small delay to ensure UI is seen if super fast
+                setTimeout(() => {
+                    window.location.replace(redirectUrl);
+                }, 1000);
+
+            } catch (e) {
+                console.error(e);
+                statusEl.innerText = 'Ошибка: ' + e.message;
+                statusEl.style.color = 'red';
+            }
+        })();
+    </script>
+</body>
+
+</html>

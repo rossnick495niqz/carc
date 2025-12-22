@@ -4,9 +4,9 @@ import { get, set, del } from 'idb-keyval'; // IndexedDB wrapper
 import { FxSnapshot } from './types';
 import { fetchCbrXml } from './providers/cbr';
 
-import { withBase } from '../utils/url';
+import { publicUrl } from '../shared/publicUrl';
 
-const FALLBACK_URL = withBase('data/fx/cbr_daily.json');
+const FALLBACK_URL = publicUrl('data/fx/cbr_daily.json');
 
 // Custom IDB Storage for Zustand
 const idbStorage: StateStorage = {

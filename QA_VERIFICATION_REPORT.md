@@ -51,3 +51,6 @@ All critical endpoints returned **HTTP 200 OK**.
 - **IAP Stub:** ✅ Verified (`src/pro/iap/providers/stub.ts`).
 - **Complex PDF:** ✅ Verified (`src/ui/pdf/AdvancedPrintTemplate.tsx`).
 - **UI Gates:** Verified existence of "PDF (PRO)" and "Сравнить" (Compare) buttons with Lock icons.
+
+## 7. Fixes & Improvements
+- **Runtime Stability:** Fixed `Invalid base URL` crash by replacing `new URL(..., import.meta.env.BASE_URL)` with safe `withBase()` helper using `document.baseURI`. Verified live.

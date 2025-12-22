@@ -1,5 +1,5 @@
 import { create } from 'zustand';
-import { withBase } from '../../utils/url';
+import { publicUrl } from '../../shared/publicUrl';
 import { DataPackManifestSchema, UtilFeeTableSchema, CustomsTableSchema, type DataPackManifest, type UtilFeeTable, type CustomsTable } from './types';
 
 interface DataPackState {
@@ -15,7 +15,8 @@ interface DataPackState {
     loadTable: (tableName: 'util_fee' | 'customs') => Promise<void>;
 }
 
-const DATA_PACK_BASE_URL = '/datapack'; // simplified for dev
+// Ensure we point to the correct location for datapack resources
+const getManifestUrl = () => publicUrl('datapack/manifest.json');
 
 export const useDataPackStore = create<DataPackState>((set, get) => ({
     manifest: null,
@@ -29,7 +30,7 @@ export const useDataPackStore = create<DataPackState>((set, get) => ({
     initialize: async () => {
         set({ isLoading: true, error: null });
         try {
-            const response = await fetch(`${DATA_PACK_BASE_URL}/manifest.json`);
+            const response = await fetch(getManifestUrl());
             if (!response.ok) throw new Error('Failed to fetch manifest');
 
             const json = await response.json();
@@ -43,9 +44,9 @@ export const useDataPackStore = create<DataPackState>((set, get) => ({
             // In v1.1 we will check catalog.json for versioning vs local cache.
 
             const [utilFeeRes, customsRes] = await Promise.all([
-                fetch(withBase('data/official/util_fee.json')),
-                fetch(withBase('data/official/customs.json')),
-                fetch(withBase('data/catalog.json')).catch(() => null)
+                fetch(publicUrl('data/official/util_fee.json')),
+                fetch(publicUrl('data/official/customs.json')),
+                fetch(publicUrl('data/catalog.json')).catch(() => null)
             ]);
 
             if (!utilFeeRes.ok || !customsRes.ok) throw new Error('Failed to fetch official data tables');
@@ -86,7 +87,7 @@ export const useDataPackStore = create<DataPackState>((set, get) => ({
             const relativePath = manifest.tables[tableName];
             if (!relativePath) throw new Error(`Table ${tableName} not found in manifest`);
 
-            const response = await fetch(`${DATA_PACK_BASE_URL}/${relativePath}`);
+            const response = await fetch(publicUrl(`datapack/${relativePath}`));
             if (!response.ok) throw new Error(`Failed to fetch table ${tableName}`);
 
             const json = await response.json();

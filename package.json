@@ -9,7 +9,7 @@
     "scripts": {
         "dev": "vite",
         "test": "vitest run",
-        "build": "npm run build:version && tsc && vite build && npm run data:copy",
+        "build": "npm run build:version && tsc && vite build && npm run data:copy && npx tsx scripts/check_invalid_url_base.ts",
         "data:fetch": "npx tsx scripts/data/fetch_raw.ts",
         "data:build": "npx tsx scripts/data/build_catalog.ts && npx tsx scripts/data/build_parsed.ts",
         "data:copy": "mkdir -p public/data/official && cp data/official/parsed/*.json public/data/official/ && cp data/catalog.json public/data/catalog.json",
@@ -47,6 +47,7 @@
         "@types/xmldom": "^0.1.33",
         "@vitejs/plugin-react": "^4.0.3",
         "autoprefixer": "^10.4.14",
+        "glob": "^13.0.0",
         "jsdom": "^22.1.0",
         "postcss": "^8.4.27",
         "tailwindcss": "^3.3.3",
