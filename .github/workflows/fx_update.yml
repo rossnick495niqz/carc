@@ -1,0 +1,36 @@
+name: Update FX Rates
+
+on:
+  schedule:
+    # Run at 04:00 UTC daily (approx 7:00 Moscow time, CBR usually updates by then)
+    - cron: '0 4 * * *'
+  workflow_dispatch:
+
+jobs:
+  update-fx:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Setup Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+
+      - name: Install dependencies
+        run: npm ci || npm install # fallback if lockfile mismatch
+
+      - name: Run FX Script
+        run: npx tsx scripts/fx/build_cbr_daily_json.ts
+
+      - name: Commit and Push
+        run: |
+          git config --global user.name 'FX Bot'
+          git config --global user.email 'bot@noreply.github.com'
+          git add public/data/fx/cbr_daily.json
+          # Only commit if changes exist
+          git diff --quiet && git diff --staged --quiet || (git commit -m "chore(fx): update daily rates [skip ci]" && git push)

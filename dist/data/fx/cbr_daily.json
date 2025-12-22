@@ -1,0 +1,54 @@
+{
+    "Date": "2024-12-22",
+    "Timestamp": "2024-12-22T09:00:00.000Z",
+    "Valute": {
+        "EUR": {
+            "CharCode": "EUR",
+            "Nominal": 1,
+            "Name": "Евро",
+            "Value": 105.50
+        },
+        "USD": {
+            "CharCode": "USD",
+            "Nominal": 1,
+            "Name": "Доллар США",
+            "Value": 99.20
+        },
+        "CNY": {
+            "CharCode": "CNY",
+            "Nominal": 1,
+            "Name": "Китайский юань",
+            "Value": 13.65
+        },
+        "JPY": {
+            "CharCode": "JPY",
+            "Nominal": 100,
+            "Name": "Японских иен",
+            "Value": 65.40
+        },
+        "KRW": {
+            "CharCode": "KRW",
+            "Nominal": 1000,
+            "Name": "Вон Республики Корея",
+            "Value": 71.30
+        },
+        "GBP": {
+            "CharCode": "GBP",
+            "Nominal": 1,
+            "Name": "Фунт стерлингов",
+            "Value": 126.10
+        },
+        "CHF": {
+            "CharCode": "CHF",
+            "Nominal": 1,
+            "Name": "Швейцарский франк",
+            "Value": 110.80
+        },
+        "KGS": {
+            "CharCode": "KGS",
+            "Nominal": 10,
+            "Name": "Киргизских сомов",
+            "Value": 11.55
+        }
+    }
+}

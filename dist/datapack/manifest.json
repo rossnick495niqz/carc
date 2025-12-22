@@ -1,0 +1,21 @@
+{
+    "version": "0.1.0",
+    "build_date": "2025-12-21T12:00:00Z",
+    "effective_from": "2025-01-01T00:00:00Z",
+    "sources": [
+        {
+            "name": "Постановление Правительства РФ №1291 (ред. от 2025)",
+            "url": "http://government.ru/docs/...",
+            "date": "2025-01-01"
+        },
+        {
+            "name": "Решение Совета ЕЭК №107 (ЕТТ С)",
+            "url": "https://docs.eaeunion.org/...",
+            "date": "2025-01-01"
+        }
+    ],
+    "tables": {
+        "util_fee": "tables/util_fee.json",
+        "customs": "tables/customs.json"
+    }
+}

@@ -1,0 +1,18 @@
+{
+  "datasets": [
+    {
+      "id": "customs",
+      "version": "2024-01-01",
+      "effective_from": "2024-01-01",
+      "source_title": "EAEU Council Decision No. 44 (ETTS)",
+      "source_url": "https://docs.eaeunion.org/docs/ru-ru/01415817/clcd_12042018_44",
+      "document_date": "2024-01-01",
+      "retrieved_at": "2025-12-22T00:01:00.682Z",
+      "checksum": "358ffd58ff310cca9c624f140668158dc45f2b03e5187eaa998a2e752c229f04",
+      "parser_version": "1.0.1",
+      "raw_path": "data/official/raw/customs_etts_eaeu.html",
+      "parsed_path": "data/official/parsed/customs.json"
+    }
+  ],
+  "last_updated": "2025-12-22T00:01:01.190Z"
+}

@@ -1,0 +1,174 @@
+{
+    "version": "2024-10-01 (PP 1291)",
+    "rates": [
+        {
+            "category": "M1",
+            "importer_type": "personal",
+            "age_years": [
+                0,
+                3
+            ],
+            "engine_volume": [
+                0,
+                99999
+            ],
+            "electric": true,
+            "base_rate": 20000,
+            "k": 0.17,
+            "source_ref": "PP_1291_List1_Local"
+        },
+        {
+            "category": "M1",
+            "importer_type": "personal",
+            "age_years": [
+                3,
+                99
+            ],
+            "engine_volume": [
+                0,
+                99999
+            ],
+            "electric": true,
+            "base_rate": 20000,
+            "k": 0.26,
+            "source_ref": "PP_1291_List1_Local"
+        },
+        {
+            "category": "M1",
+            "importer_type": "personal",
+            "age_years": [
+                0,
+                3
+            ],
+            "engine_volume": [
+                0,
+                3000
+            ],
+            "electric": false,
+            "base_rate": 20000,
+            "k": 0.17,
+            "source_ref": "PP_1291_List1"
+        },
+        {
+            "category": "M1",
+            "importer_type": "personal",
+            "age_years": [
+                3,
+                99
+            ],
+            "engine_volume": [
+                0,
+                3000
+            ],
+            "electric": false,
+            "base_rate": 20000,
+            "k": 0.26,
+            "source_ref": "PP_1291_List1"
+        },
+        {
+            "category": "M1",
+            "importer_type": "commercial",
+            "age_years": [
+                0,
+                3
+            ],
+            "engine_volume": [
+                0,
+                1000
+            ],
+            "base_rate": 20000,
+            "k": 4.06,
+            "source_ref": "PP_1291_List2"
+        },
+        {
+            "category": "M1",
+            "importer_type": "commercial",
+            "age_years": [
+                0,
+                3
+            ],
+            "engine_volume": [
+                1000,
+                2000
+            ],
+            "base_rate": 20000,
+            "k": 15.03,
+            "source_ref": "PP_1291_List2"
+        },
+        {
+            "category": "M1",
+            "importer_type": "commercial",
+            "age_years": [
+                0,
+                3
+            ],
+            "engine_volume": [
+                2000,
+                3000
+            ],
+            "base_rate": 20000,
+            "k": 42.24,
+            "source_ref": "PP_1291_List2"
+        },
+        {
+            "category": "M1",
+            "importer_type": "commercial",
+            "age_years": [
+                0,
+                3
+            ],
+            "engine_volume": [
+                3000,
+                3500
+            ],
+            "base_rate": 20000,
+            "k": 48.5,
+            "source_ref": "PP_1291_List2"
+        },
+        {
+            "category": "M1",
+            "importer_type": "commercial",
+            "age_years": [
+                0,
+                3
+            ],
+            "engine_volume": [
+                3500,
+                99999
+            ],
+            "base_rate": 20000,
+            "k": 61.76,
+            "source_ref": "PP_1291_List2"
+        },
+        {
+            "category": "M1",
+            "importer_type": "commercial",
+            "age_years": [
+                3,
+                99
+            ],
+            "engine_volume": [
+                1000,
+                2000
+            ],
+            "base_rate": 20000,
+            "k": 26.44,
+            "source_ref": "PP_1291_List2"
+        },
+        {
+            "category": "M1",
+            "importer_type": "commercial",
+            "age_years": [
+                3,
+                99
+            ],
+            "engine_volume": [
+                2000,
+                3000
+            ],
+            "base_rate": 20000,
+            "k": 63.95,
+            "source_ref": "PP_1291_List2"
+        }
+    ]
+}

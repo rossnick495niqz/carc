@@ -1,0 +1,23 @@
+{
+    "last_updated": "2024-10-27T10:00:00.000Z",
+    "datasets": [
+        {
+            "id": "util_fee",
+            "version": "2024-10-01",
+            "effective_from": "2024-10-01",
+            "source_link": "http://publication.pravo.gov.ru/Document/View/0001202410010001",
+            "retrieved_at": "2024-10-27T10:00:00.000Z",
+            "checksum": "manual_override",
+            "local_raw_path": "data/official/raw/util_fee_decree_2024.txt"
+        },
+        {
+            "id": "customs",
+            "version": "2024-01-01",
+            "effective_from": "2024-10-01",
+            "source_link": "https://eec.eaeunion.org/comission/department/dep-tamoj-zak/resheniya/index.php",
+            "retrieved_at": "2024-10-27T10:00:00.000Z",
+            "checksum": "manual_override",
+            "local_raw_path": "data/official/raw/customs_etts_2024.txt"
+        }
+    ]
+}

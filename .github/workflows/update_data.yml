@@ -1,0 +1,35 @@
+name: Update Data Packs
+
+on:
+  schedule:
+    - cron: '0 0 * * *' # Every day at midnight
+  workflow_dispatch:
+
+jobs:
+  update-data:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      
+      - name: Setup Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+          
+      - name: Install Deps
+        run: npm ci
+        
+      - name: Fetch & Generate
+        run: |
+          # In a real scenario, this would run a script fetching from APIs
+          # node scripts/fetch_official_data.ts
+          echo "Fetching data..."
+          
+      - name: Validate Packs
+        run: node scripts/validate_packs.js
+        
+      - name: Commit Changes
+        uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: "data: update rates [skip ci]"
+          branch: main

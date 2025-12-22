@@ -1,0 +1,246 @@
+{
+    "id": "customs",
+    "version": "2024-01-01",
+    "rates": [
+        {
+            "importer_type": "personal",
+            "age_years": [
+                0,
+                3
+            ],
+            "price_eur": [
+                0,
+                8500
+            ],
+            "rate_percentage": 54,
+            "min_eur_per_cc": 2.5,
+            "source_ref": "ETTS App 2"
+        },
+        {
+            "importer_type": "personal",
+            "age_years": [
+                0,
+                3
+            ],
+            "price_eur": [
+                8500,
+                16700
+            ],
+            "rate_percentage": 48,
+            "min_eur_per_cc": 3.5,
+            "source_ref": "ETTS App 2"
+        },
+        {
+            "importer_type": "personal",
+            "age_years": [
+                0,
+                3
+            ],
+            "price_eur": [
+                16700,
+                42300
+            ],
+            "rate_percentage": 48,
+            "min_eur_per_cc": 5.5,
+            "source_ref": "ETTS App 2"
+        },
+        {
+            "importer_type": "personal",
+            "age_years": [
+                0,
+                3
+            ],
+            "price_eur": [
+                42300,
+                84500
+            ],
+            "rate_percentage": 48,
+            "min_eur_per_cc": 7.5,
+            "source_ref": "ETTS App 2"
+        },
+        {
+            "importer_type": "personal",
+            "age_years": [
+                0,
+                3
+            ],
+            "price_eur": [
+                84500,
+                169000
+            ],
+            "rate_percentage": 48,
+            "min_eur_per_cc": 15,
+            "source_ref": "ETTS App 2"
+        },
+        {
+            "importer_type": "personal",
+            "age_years": [
+                0,
+                3
+            ],
+            "price_eur": [
+                169000,
+                9999999
+            ],
+            "rate_percentage": 48,
+            "min_eur_per_cc": 20,
+            "source_ref": "ETTS App 2"
+        },
+        {
+            "importer_type": "personal",
+            "age_years": [
+                3,
+                5
+            ],
+            "engine_volume": [
+                0,
+                1000
+            ],
+            "fixed_rate_eur": 1.5,
+            "source_ref": "ETTS App 2"
+        },
+        {
+            "importer_type": "personal",
+            "age_years": [
+                3,
+                5
+            ],
+            "engine_volume": [
+                1000,
+                1500
+            ],
+            "fixed_rate_eur": 1.7,
+            "source_ref": "ETTS App 2"
+        },
+        {
+            "importer_type": "personal",
+            "age_years": [
+                3,
+                5
+            ],
+            "engine_volume": [
+                1500,
+                1800
+            ],
+            "fixed_rate_eur": 2.5,
+            "source_ref": "ETTS App 2"
+        },
+        {
+            "importer_type": "personal",
+            "age_years": [
+                3,
+                5
+            ],
+            "engine_volume": [
+                1800,
+                2300
+            ],
+            "fixed_rate_eur": 2.7,
+            "source_ref": "ETTS App 2"
+        },
+        {
+            "importer_type": "personal",
+            "age_years": [
+                3,
+                5
+            ],
+            "engine_volume": [
+                2300,
+                3000
+            ],
+            "fixed_rate_eur": 3,
+            "source_ref": "ETTS App 2"
+        },
+        {
+            "importer_type": "personal",
+            "age_years": [
+                3,
+                5
+            ],
+            "engine_volume": [
+                3000,
+                99999
+            ],
+            "fixed_rate_eur": 3.6,
+            "source_ref": "ETTS App 2"
+        },
+        {
+            "importer_type": "personal",
+            "age_years": [
+                5,
+                99
+            ],
+            "engine_volume": [
+                0,
+                1000
+            ],
+            "fixed_rate_eur": 3,
+            "source_ref": "ETTS App 2"
+        },
+        {
+            "importer_type": "personal",
+            "age_years": [
+                5,
+                99
+            ],
+            "engine_volume": [
+                1000,
+                1500
+            ],
+            "fixed_rate_eur": 3.2,
+            "source_ref": "ETTS App 2"
+        },
+        {
+            "importer_type": "personal",
+            "age_years": [
+                5,
+                99
+            ],
+            "engine_volume": [
+                1500,
+                1800
+            ],
+            "fixed_rate_eur": 3.5,
+            "source_ref": "ETTS App 2"
+        },
+        {
+            "importer_type": "personal",
+            "age_years": [
+                5,
+                99
+            ],
+            "engine_volume": [
+                1800,
+                2300
+            ],
+            "fixed_rate_eur": 4.8,
+            "source_ref": "ETTS App 2"
+        },
+        {
+            "importer_type": "personal",
+            "age_years": [
+                5,
+                99
+            ],
+            "engine_volume": [
+                2300,
+                3000
+            ],
+            "fixed_rate_eur": 5,
+            "source_ref": "ETTS App 2"
+        },
+        {
+            "importer_type": "personal",
+            "age_years": [
+                5,
+                99
+            ],
+            "engine_volume": [
+                3000,
+                99999
+            ],
+            "fixed_rate_eur": 5.7,
+            "source_ref": "ETTS App 2"
+        }
+    ]
+}
