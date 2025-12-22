@@ -278,6 +278,12 @@ function ResultScreen() {
                         <div className="text-5xl font-bold tracking-tight text-white mb-2">
                             {total.toLocaleString('ru-RU')} ₽
                         </div>
+                        <div className="mt-8 text-center text-xs text-white/30 space-y-1">
+                            <p>Курсы ЦБ РФ на {new Date().toLocaleDateString('ru-RU')} • Данные {utilTable?.metadata?.parser_version ? `v${utilTable.metadata.parser_version}` : 'официальные'}</p>
+                            <p className="font-mono text-[10px] opacity-70">
+                                v{__APP_VERSION__} • {__GIT_SHA__}
+                            </p>
+                        </div>
                     </div>
 
                     <div className="space-y-3 mt-4">

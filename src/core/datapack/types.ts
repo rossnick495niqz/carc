@@ -32,6 +32,7 @@ export const UtilFeeRateSchema = z.object({
 export const UtilFeeTableSchema = z.object({
     version: z.string(),
     rates: z.array(UtilFeeRateSchema),
+    metadata: z.any().optional(),
 });
 
 export type UtilFeeTable = z.infer<typeof UtilFeeTableSchema>;
@@ -52,6 +53,7 @@ export const CustomsRateSchema = z.object({
 export const CustomsTableSchema = z.object({
     version: z.string(),
     rates: z.array(CustomsRateSchema),
+    metadata: z.any().optional(),
 });
 
 export type CustomsTable = z.infer<typeof CustomsTableSchema>;

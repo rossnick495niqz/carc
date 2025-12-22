@@ -1,4 +1,5 @@
 import { create } from 'zustand';
+import { withBase } from '../../utils/url';
 import { DataPackManifestSchema, UtilFeeTableSchema, CustomsTableSchema, type DataPackManifest, type UtilFeeTable, type CustomsTable } from './types';
 
 interface DataPackState {
@@ -42,9 +43,9 @@ export const useDataPackStore = create<DataPackState>((set, get) => ({
             // In v1.1 we will check catalog.json for versioning vs local cache.
 
             const [utilFeeRes, customsRes] = await Promise.all([
-                fetch(new URL('data/official/util_fee.json', import.meta.env.BASE_URL).toString()),
-                fetch(new URL('data/official/customs.json', import.meta.env.BASE_URL).toString()),
-                fetch(new URL('data/catalog.json', import.meta.env.BASE_URL).toString()).catch(() => null)
+                fetch(withBase('data/official/util_fee.json')),
+                fetch(withBase('data/official/customs.json')),
+                fetch(withBase('data/catalog.json')).catch(() => null)
             ]);
 
             if (!utilFeeRes.ok || !customsRes.ok) throw new Error('Failed to fetch official data tables');

@@ -19,6 +19,8 @@ A professional-grade, offline-first Progressive Web App (PWA) for accurately cal
 
 Built with React, TypeScript, Vite, TailwindCSS, and Capacitor for native mobile support.
 
+**Version**: `v1.0.0` (Check footer or `/version.json`)
+
 ---
 
 ## A) Prerequisites (macOS)
@@ -28,7 +30,7 @@ Ensure you have the following installed before starting:
 1.  **Node.js**: Recommended via Homebrew.
     ```bash
     brew install node
-    node -v # Should be v18+
+    node -v # Requires v20+ (LTS recommended)
     ```
 2.  **Git**: For version control.
 3.  **CocoaPods** (Optional, usually required for some Capacitor iOS plugins):

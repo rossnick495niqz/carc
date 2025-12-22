@@ -46,6 +46,7 @@ export const UtilFeeTableSchema = z.object({
     id: z.literal('util_fee'),
     version: z.string(),
     rates: z.array(UtilFeeRateSchema),
+    metadata: z.object({ parser_version: z.string().optional() }).optional(),
 });
 
 // --- Customs Table ---
@@ -67,4 +68,5 @@ export const CustomsTableSchema = z.object({
     id: z.literal('customs'),
     version: z.string(),
     rates: z.array(CustomsRateSchema),
+    metadata: z.object({ parser_version: z.string().optional() }).optional(),
 });

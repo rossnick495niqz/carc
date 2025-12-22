@@ -4,9 +4,27 @@ import react from '@vitejs/plugin-react'
 import path from 'path'
 
 import { VitePWA } from 'vite-plugin-pwa'
+import { execSync } from 'child_process'
+import pkg from './package.json'
+
+const getGitHash = () => {
+  try {
+    return execSync('git rev-parse --short HEAD').toString().trim()
+  } catch (e) {
+    return 'unknown'
+  }
+}
+
+const buildTime = new Date().toISOString()
+const gitHash = getGitHash()
 
 // https://vitejs.dev/config/
 export default defineConfig({
+  define: {
+    __APP_VERSION__: JSON.stringify(pkg.version),
+    __BUILD_TIME__: JSON.stringify(buildTime),
+    __GIT_SHA__: JSON.stringify(gitHash),
+  },
   base: process.env.VITE_BASE_URL || '/',
   plugins: [
     react(),
