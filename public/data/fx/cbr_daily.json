@@ -1,336 +1,336 @@
 {
-  "Date": "2025-12-26",
-  "Timestamp": "2025-12-26T04:59:22.636Z",
+  "Date": "2025-12-27",
+  "Timestamp": "2025-12-27T04:57:11.583Z",
   "Valute": {
     "AUD": {
       "CharCode": "AUD",
       "Nominal": 1,
       "Name": "������������� ������",
-      "Value": 52.2526
+      "Value": 52.1238
     },
     "AZN": {
       "CharCode": "AZN",
       "Nominal": 1,
       "Name": "��������������� �����",
-      "Value": 45.8144
+      "Value": 45.7014
     },
     "DZD": {
       "CharCode": "DZD",
       "Nominal": 100,
       "Name": "��������� �������",
-      "Value": 60.1997
+      "Value": 60.0458
     },
     "GBP": {
       "CharCode": "GBP",
       "Nominal": 1,
       "Name": "���� ����������",
-      "Value": 105.0193
+      "Value": 104.7603
     },
     "AMD": {
       "CharCode": "AMD",
       "Nominal": 100,
       "Name": "��������� ������",
-      "Value": 20.4148
+      "Value": 20.3666
     },
     "BHD": {
       "CharCode": "BHD",
       "Nominal": 1,
       "Name": "����������� �����",
-      "Value": 207.0946
+      "Value": 206.5838
     },
     "BYN": {
       "CharCode": "BYN",
       "Nominal": 1,
       "Name": "����������� �����",
-      "Value": 26.7405
+      "Value": 26.6746
     },
     "BGN": {
       "CharCode": "BGN",
       "Nominal": 1,
       "Name": "���������� ���",
-      "Value": 46.9339
+      "Value": 46.8181
     },
     "BOB": {
       "CharCode": "BOB",
       "Nominal": 1,
       "Name": "���������",
-      "Value": 11.2713
+      "Value": 11.2435
     },
     "BRL": {
       "CharCode": "BRL",
       "Nominal": 1,
       "Name": "����������� ����",
-      "Value": 14.0723
+      "Value": 14.0376
     },
     "HUF": {
       "CharCode": "HUF",
       "Nominal": 100,
       "Name": "��������",
-      "Value": 23.4797
+      "Value": 23.4218
     },
     "VND": {
       "CharCode": "VND",
       "Nominal": 10000,
       "Name": "������",
-      "Value": 30.9889
+      "Value": 30.9186
     },
     "HKD": {
       "CharCode": "HKD",
       "Nominal": 1,
       "Name": "����������� ������",
-      "Value": 10.0334
+      "Value": 10.0145
     },
     "GEL": {
       "CharCode": "GEL",
       "Nominal": 1,
       "Name": "����",
-      "Value": 28.8782
+      "Value": 28.8112
     },
     "DKK": {
       "CharCode": "DKK",
       "Nominal": 1,
       "Name": "������� �����",
-      "Value": 12.2881
+      "Value": 12.2578
     },
     "AED": {
       "CharCode": "AED",
       "Nominal": 1,
       "Name": "������ ���",
-      "Value": 21.2075
+      "Value": 21.1552
     },
     "USD": {
       "CharCode": "USD",
       "Nominal": 1,
       "Name": "������ ���",
-      "Value": 77.8844
+      "Value": 77.6923
     },
     "EUR": {
       "CharCode": "EUR",
       "Nominal": 1,
       "Name": "����",
-      "Value": 91.8902
+      "Value": 91.2066
     },
     "EGP": {
       "CharCode": "EGP",
       "Nominal": 10,
       "Name": "���������� ������",
-      "Value": 16.3623
+      "Value": 16.322
     },
     "INR": {
       "CharCode": "INR",
       "Nominal": 100,
       "Name": "��������� �����",
-      "Value": 86.7597
+      "Value": 86.4885
     },
     "IDR": {
       "CharCode": "IDR",
       "Nominal": 10000,
       "Name": "�����",
-      "Value": 46.3874
+      "Value": 46.273
     },
     "IRR": {
       "CharCode": "IRR",
       "Nominal": 100000,
       "Name": "�������� ������",
-      "Value": 10.4865
+      "Value": 10.4606
     },
     "KZT": {
       "CharCode": "KZT",
       "Nominal": 100,
       "Name": "�����",
-      "Value": 15.2416
+      "Value": 15.1503
     },
     "CAD": {
       "CharCode": "CAD",
       "Nominal": 1,
       "Name": "��������� ������",
-      "Value": 56.958
+      "Value": 56.8175
     },
     "QAR": {
       "CharCode": "QAR",
       "Nominal": 1,
       "Name": "��������� ����",
-      "Value": 21.3968
+      "Value": 21.344
     },
     "KGS": {
       "CharCode": "KGS",
       "Nominal": 100,
       "Name": "�����",
-      "Value": 89.0616
+      "Value": 88.8674
     },
     "CNY": {
       "CharCode": "CNY",
       "Nominal": 1,
       "Name": "����",
-      "Value": 11.0773
+      "Value": 11.0449
     },
     "CUP": {
       "CharCode": "CUP",
       "Nominal": 10,
       "Name": "��������� ����",
-      "Value": 32.4518
+      "Value": 32.3718
     },
     "MDL": {
       "CharCode": "MDL",
       "Nominal": 10,
       "Name": "���������� ����",
-      "Value": 46.3661
+      "Value": 46.2517
     },
     "MNT": {
       "CharCode": "MNT",
       "Nominal": 1000,
       "Name": "��������",
-      "Value": 21.9034
+      "Value": 21.848
     },
     "NGN": {
       "CharCode": "NGN",
       "Nominal": 1000,
       "Name": "����",
-      "Value": 53.9599
+      "Value": 53.8268
     },
     "NZD": {
       "CharCode": "NZD",
       "Nominal": 1,
       "Name": "�������������� ������",
-      "Value": 45.4806
+      "Value": 45.3684
     },
     "NOK": {
       "CharCode": "NOK",
       "Nominal": 10,
       "Name": "���������� ����",
-      "Value": 77.4699
+      "Value": 77.2789
     },
     "OMR": {
       "CharCode": "OMR",
       "Nominal": 1,
       "Name": "�������� ����",
-      "Value": 202.5602
+      "Value": 202.0606
     },
     "PLN": {
       "CharCode": "PLN",
       "Nominal": 1,
       "Name": "������",
-      "Value": 21.7263
+      "Value": 21.6727
     },
     "SAR": {
       "CharCode": "SAR",
       "Nominal": 1,
       "Name": "���������� ����",
-      "Value": 20.7692
+      "Value": 20.7179
     },
     "RON": {
       "CharCode": "RON",
       "Nominal": 1,
       "Name": "��������� ���",
-      "Value": 18.0539
+      "Value": 18.0093
     },
     "XDR": {
       "CharCode": "XDR",
       "Nominal": 1,
       "Name": "��� (����������� ����� �������������)",
-      "Value": 106.806
+      "Value": 106.5426
     },
     "SGD": {
       "CharCode": "SGD",
       "Nominal": 1,
       "Name": "������������ ������",
-      "Value": 60.6907
+      "Value": 60.4845
     },
     "TJS": {
       "CharCode": "TJS",
       "Nominal": 10,
       "Name": "������",
-      "Value": 84.2066
+      "Value": 84.0162
     },
     "THB": {
       "CharCode": "THB",
       "Nominal": 10,
       "Name": "�����",
-      "Value": 25.0472
+      "Value": 25.008
     },
     "BDT": {
       "CharCode": "BDT",
       "Nominal": 100,
       "Name": "���",
-      "Value": 63.6221
+      "Value": 63.4652
     },
     "TRY": {
       "CharCode": "TRY",
       "Nominal": 10,
       "Name": "�������� ���",
-      "Value": 18.205
+      "Value": 18.1513
     },
     "TMT": {
       "CharCode": "TMT",
       "Nominal": 1,
       "Name": "����� ����������� �����",
-      "Value": 22.2527
+      "Value": 22.1978
     },
     "UZS": {
       "CharCode": "UZS",
       "Nominal": 10000,
       "Name": "��������� �����",
-      "Value": 64.482
+      "Value": 64.4358
     },
     "UAH": {
       "CharCode": "UAH",
       "Nominal": 10,
       "Name": "������",
-      "Value": 18.4761
+      "Value": 18.5277
     },
     "CZK": {
       "CharCode": "CZK",
       "Nominal": 10,
       "Name": "������� ����",
-      "Value": 37.7512
+      "Value": 37.658
     },
     "SEK": {
       "CharCode": "SEK",
       "Nominal": 10,
       "Name": "�������� ����",
-      "Value": 84.2624
+      "Value": 84.0546
     },
     "CHF": {
       "CharCode": "CHF",
       "Nominal": 1,
       "Name": "����������� �����",
-      "Value": 99.0518
+      "Value": 98.8075
     },
     "ETB": {
       "CharCode": "ETB",
       "Nominal": 100,
       "Name": "��������� �����",
-      "Value": 50.1052
+      "Value": 50.1283
     },
     "RSD": {
       "CharCode": "RSD",
       "Nominal": 100,
       "Name": "�������� �������",
-      "Value": 78.1767
+      "Value": 78.021
     },
     "ZAR": {
       "CharCode": "ZAR",
       "Nominal": 10,
       "Name": "������",
-      "Value": 46.709
+      "Value": 46.5938
     },
     "KRW": {
       "CharCode": "KRW",
       "Nominal": 1000,
       "Name": "���",
-      "Value": 52.504
+      "Value": 53.192
     },
     "JPY": {
       "CharCode": "JPY",
       "Nominal": 100,
       "Name": "���",
-      "Value": 49.99
+      "Value": 49.6659
     },
     "MMK": {
       "CharCode": "MMK",
       "Nominal": 1000,
       "Name": "������",
-      "Value": 37.0878
+      "Value": 36.9963
     }
   }
 }
